@@ -1,19 +1,32 @@
-.btn-login {
-  background-color: $indigo-500;
-  border-color: $indigo-500;
+$p1Color: #082032; // navy dark blue
+$p2Color: #FF4C29; // orange
+$p3Color: #2C394B; // navy light blue
+$p4Color: #334756; // navy lightish blue
+
+.btn-register {
+  background-color: $p2Color !important;
+  border-color: $p2Color !important;
 
   &:hover {
-    background-color: $indigo-600;
-    border-color: $indigo-600;
+    opacity: 0.9;
   }
 }
 
-.btn-register {
-  background-color: $orange-500;
-  border-color: $orange-500;
+.navbar {
+  background-color: $p1Color;
+
+  &-brand {
+    color: $white !important;
+    font-family: $bitter;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+}
+
+.nav-link {
+  color: $white !important;
 
   &:hover {
-    background-color: $orange-600;
-    border-color: $orange-600;
+    opacity: 0.9;
   }
 }
