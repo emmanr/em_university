@@ -1,0 +1,19 @@
+.btn-login {
+  background-color: $indigo-500;
+  border-color: $indigo-500;
+
+  &:hover {
+    background-color: $indigo-600;
+    border-color: $indigo-600;
+  }
+}
+
+.btn-register {
+  background-color: $orange-500;
+  border-color: $orange-500;
+
+  &:hover {
+    background-color: $orange-600;
+    border-color: $orange-600;
+  }
+}
