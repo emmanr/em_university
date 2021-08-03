@@ -1,0 +1,23 @@
+.row.mt-3
+  .col-md-6.offset-md-3
+    .card
+      .card-header
+        h1 Create an account
+      .card-body
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .form-floating.mb-3
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "name@example.com"
+            = f.label :email
+          .form-floating.mb-3
+            = f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "name@example.com"
+            = f.label :password
+            - if @minimum_password_length
+              p = "#{@minimum_password_length} characters minimum"
+          .form-floating.mb-3
+            = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "name@example.com"
+            = f.label :password_confirmation
+          .actions
+            = f.submit "Sign up", class: "btn btn-primary btn-login"
+      .card-footer
+        = render "devise/shared/links"

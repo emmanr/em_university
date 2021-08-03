@@ -16,6 +16,16 @@ $p4Color: #334756; // navy lightish blue
   }
 }
 
+.btn-login {
+  background-color: $indigo-600;
+  border-color: $indigo-600;
+
+  &:hover {
+    background-color: $indigo-500;
+    border-color: $indigo-500;
+  }
+}
+
 .navbar {
   background-color: $p1Color;
 
@@ -33,4 +43,24 @@ $p4Color: #334756; // navy lightish blue
   &:hover {
     opacity: 0.9;
   }
+}
+
+.alert {
+  border-radius: 0;
+
+  .btn-close:focus {
+    box-shadow: none;
+  }
+}
+
+.alert-notice {
+  color: #084298;
+  background-color: #cfe2ff;
+  border-color: #b6d4fe;
+}
+
+.alert-alert {
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
 }

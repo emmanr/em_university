@@ -1,0 +1,21 @@
+.row.mt-3
+  .col-md-6.offset-md-3
+    .card
+      .card-header
+        h1 Log in
+      .card-body
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-floating.mb-3
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "name@example.com"
+            = f.label :email
+          .form-floating.mb-3
+            = f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "password"
+            = f.label :password
+          - if devise_mapping.rememberable?
+            .form-check.mb-3
+              = f.check_box :remember_me, class: "form-check-input"
+              = f.label :remember_me, class: "form-check-label"
+          .actions
+            = f.submit "Log in", class: "btn btn-primary btn-login"
+      .card-footer
+        = render "devise/shared/links"
