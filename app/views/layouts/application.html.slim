@@ -1,0 +1,21 @@
+DOCTYPE html
+html.h-100
+  head
+    = display_meta_tags site: 'EmUniversity'
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+    link rel="preconnect" href="https://fonts.googleapis.com"
+    link rel="preconnect" href="https://fonts.gstatic.com" crossorigin
+    link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet"
+
+  body.d-flex.flex-column.h-100
+    = render './layouts/navigation'
+    .flex-shrink-0
+      .container
+        = yield
+    = render './layouts/footer'

@@ -1,0 +1,11 @@
+header
+  nav.navbar.navbar-expand-md.fixed-top.pt-md-3.pb-md-3.border-bottom
+    .container
+      = link_to "EmUniversity", root_path, class: 'navbar-brand'
+      button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse#navbarSupportedContent
+        ul.navbar-nav.ms-auto.me-2
+          = nav_item('Courses')
+          = nav_item('Login')
+        = link_to 'Register', '#', class: 'btn btn-register btn-primary'
