@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  root 'pages#index'
+  devise_for :students
+  get 'students', to: "students#index"
+
+  root to: "pages#index"
 end

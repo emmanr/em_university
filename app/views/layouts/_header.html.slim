@@ -6,6 +6,8 @@ header
         span.navbar-toggler-icon
       .collapse.navbar-collapse#navbarSupportedContent
         ul.navbar-nav.ms-auto.me-2
+          = nav_item('Home', root_path)
           = nav_item('Courses')
-          = nav_item('Login')
-        = link_to 'Register', '#', class: 'btn btn-register btn-primary'
+          = nav_item('Login', new_student_session_path) if !student_signed_in?
+        = link_to 'Register', new_student_registration_path, class: 'btn btn-register btn-primary' if !student_signed_in?
+        = link_to 'Logout', destroy_student_session_path, method: :delete, class: 'btn btn-register btn-primary' if student_signed_in?

@@ -3,6 +3,10 @@ $p2Color: #FF4C29; // orange
 $p3Color: #2C394B; // navy light blue
 $p4Color: #334756; // navy lightish blue
 
+.main-container {
+  padding-top: 25px;
+}
+
 .btn-register {
   background-color: $p2Color !important;
   border-color: $p2Color !important;
