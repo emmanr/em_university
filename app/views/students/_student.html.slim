@@ -1,0 +1,12 @@
+tr
+  td.fw-bold = student.id
+  td = student.email
+  td = "#{student.first_name} #{student.last_name}"
+  td = student.confirmed? ? "Yes" : "No"
+  td = student.access_locked? ? "Lock" : "No"
+  td
+    = link_to "Show", student_path(student), class: "btn btn-primary"
+    '
+    = link_to "#{student.access_locked? ? 'Unlock' : 'Lock'}", ban_student_path(student), method: :patch, class: "btn btn-primary btn-login"
+    '
+    = link_to "Delete", student, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }

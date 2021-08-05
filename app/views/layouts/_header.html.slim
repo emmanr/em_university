@@ -12,5 +12,6 @@ header
           - else
             = nav_item('Courses', root_path)
             = nav_item('Students', students_path)
+            = nav_item('Edit', edit_student_registration_path)
         = link_to 'Register', new_student_registration_path, class: 'btn btn-register btn-primary' if !student_signed_in?
         = link_to 'Logout', destroy_student_session_path, method: :delete, class: 'btn btn-register btn-primary' if student_signed_in?
