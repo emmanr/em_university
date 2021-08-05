@@ -12,9 +12,15 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 
 gem 'bcrypt', '~> 3.1.7'
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise', branch: 'master'
 gem 'meta-tags'
 gem 'slim'
+gem "figaro"
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
+gem 'omniauth-facebook'
+
+gem "omniauth-rails_csrf_protection"
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
