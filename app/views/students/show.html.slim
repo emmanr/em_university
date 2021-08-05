@@ -1,0 +1,19 @@
+h1.display-6.text-center = @student.first_name
+
+p Lorem Ipsum this is your page
+p = "ID: #{@student.id}"
+p = "Your Email: #{@student.email}"
+p = "Your Last Name: #{@student.last_name}"
+p = @student.confirmed?
+
+h3 Trackable Data
+p = @student.sign_in_count
+p = @student.current_sign_in_at
+p = @student.last_sign_in_at
+p = @student.current_sign_in_ip
+p = @student.last_sign_in_ip
+
+- if @student.locked_at
+  br
+  br
+  p = "User Account was locked at: #{@student.locked_at.strftime("%b %d %Y")}"
