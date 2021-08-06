@@ -17,14 +17,6 @@ Rails.application.configure do
     }
   end
 
-  Rails.application.config.middleware.use ExceptionNotification::Rack,
-    email: {
-      deliver_with: :deliver,
-      email_prefix: '[PREFIX] ',
-      sender_address: %{"superauth error" <hello@emman.com>},
-      exception_recipients: %w{emman.info22@gmail.com}
-    }
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
