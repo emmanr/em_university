@@ -22,7 +22,7 @@ class Student < ApplicationRecord
         email: data['email'],
         password: Devise.friendly_token[0,20]
       )
-      student.confirmed_at = Time.now
+      student.skip_confirmation!
     end
     student
   end
