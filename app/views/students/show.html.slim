@@ -1,8 +1,8 @@
-h1.display-6.text-center = @student.first_name
+h1.display-6.text-center = @student.email
 
 p Lorem Ipsum this is your page
 p = "ID: #{@student.id}"
-p = "Your Email: #{@student.email}"
+p = "Your Last Name: #{@student.first_name}"
 p = "Your Last Name: #{@student.last_name}"
 p = @student.confirmed?
 
@@ -17,3 +17,10 @@ p = @student.last_sign_in_ip
   br
   br
   p = "User Account was locked at: #{@student.locked_at.strftime("%b %d %Y")}"
+
+br
+br
+p = @student.provider
+p = image_tag @student.image, alt: 'img', size: "50x50"
+br
+br

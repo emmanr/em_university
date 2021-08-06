@@ -17,12 +17,15 @@ class Student < ApplicationRecord
 
     unless student
       student = Student.create(
-        first_name: data['first_name'],
-        last_name: data['last_name'],
         email: data['email'],
         password: Devise.friendly_token[0,20]
       )
-      student.skip_confirmation!
+      student.uid          = access_token.uid
+      student.provider     = access_token.provider
+      student.image        = access_token.info.image
+      student.save
+
+      student.confirmed_at = Time.now
     end
     student
   end
