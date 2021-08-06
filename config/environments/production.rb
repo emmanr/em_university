@@ -2,7 +2,29 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_url_options = { host: 'emuniversity.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: "emuniversity.herokuapp.com", protocol: "https" }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
+  if Rails.application.credentials[:smtp].present?
+    config.action_mailer.smtp_settings = {
+      port: 587,
+      address: "",
+      user_name: "",
+      password: "",
+      authentication: :plain,
+      enable_starttls_auto: true
+    }
+  end
+
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+    email: {
+      deliver_with: :deliver,
+      email_prefix: '[PREFIX] ',
+      sender_address: %{"superauth error" <hello@emman.com>},
+      exception_recipients: %w{emman.info22@gmail.com}
+    }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
