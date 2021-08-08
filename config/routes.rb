@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'students/omniauth_callbacks'
   }
 
-  resources :students, only: [:index, :show, :destroy] do
+  resources :students, only: [:index, :show, :destroy, :edit, :update] do
     member do
       patch :ban
     end

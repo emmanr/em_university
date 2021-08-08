@@ -1,5 +1,5 @@
 tr
-  td.fw-bold = student.id
+  td.fw-bold = student.active_roles.join(", ")
   td = student.email
   td = "#{student.first_name} #{student.last_name}"
   td = student.confirmed? ? "Yes" : "No"
@@ -7,6 +7,9 @@ tr
   td
     = link_to "Show", student_path(student), class: "btn btn-primary"
     '
-    = link_to "#{student.access_locked? ? 'Unlock' : 'Lock'}", ban_student_path(student), method: :patch, class: "btn btn-primary btn-login"
-    '
-    = link_to "Delete", student, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }
+    - if current_student.admin?
+      = link_to "#{student.access_locked? ? 'Unlock' : 'Lock'}", ban_student_path(student), method: :patch, class: "btn btn-primary btn-login"
+      '
+      = link_to "Edit Account", edit_student_path(student), class: "btn btn-primary btn-register"
+      '
+      = link_to "Delete", student, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }
