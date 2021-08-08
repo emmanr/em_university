@@ -1,0 +1,27 @@
+.row.mt-3
+  .col-md-6.offset-md-3
+    .card
+      .card-header
+        h1.text-center
+          | Edit Account
+          br
+          span.fs-3 = @student.email
+      .card-body
+        = form_for(@student) do |f|
+          = render "devise/shared/error_messages", resource: @student
+          .form-floating.mb-3
+            = f.text_field :first_name, class: "form-control", placeholder: "First Name"
+            = f.label :first_name
+          .form-floating.mb-3
+            = f.text_field :last_name, class: "form-control", placeholder: "Last Name"
+            = f.label :last_name
+          .form-floating.mb-3
+            h4 Roles
+            - Student::ROLES.each do |role|
+              div.form-check.form-switch
+                label class="form-check-label" for="#{role}"
+                  = role.to_s.humanize
+                = f.check_box role, class: "form-check-input", id: role
+
+          .actions
+            = f.button :submit, class: "btn btn-primary"

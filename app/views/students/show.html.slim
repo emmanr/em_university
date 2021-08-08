@@ -1,10 +1,11 @@
-h1.display-6.text-center = @student.email
+h1.display-6.text-center = @student
 
 p Lorem Ipsum this is your page
 p = "ID: #{@student.id}"
 p = "Your Last Name: #{@student.first_name}"
 p = "Your Last Name: #{@student.last_name}"
 p = @student.confirmed?
+p = "Roles: #{@student.active_roles.join(', ')}"
 
 h3 Trackable Data
 p = @student.sign_in_count
@@ -21,6 +22,5 @@ p = @student.last_sign_in_ip
 br
 br
 p = @student.provider
-p = image_tag @student.image, alt: 'img', size: "50x50"
-br
-br
+- if @student.image
+  p = image_tag @student.image, alt: 'img', size: "50x50"

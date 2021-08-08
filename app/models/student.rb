@@ -6,6 +6,8 @@ class Student < ApplicationRecord
          :timeoutable, :lockable,
          :omniauthable, omniauth_providers: [:google_oauth2, :github]
 
+  include Roleable
+
   def timeout_in
     # return 1.year if admin?
     1.days
@@ -28,5 +30,9 @@ class Student < ApplicationRecord
       student.confirmed_at = Time.now
     end
     student
+  end
+
+  def to_s
+    email.split("@")[0]
   end
 end
