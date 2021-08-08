@@ -45,7 +45,7 @@ class StudentsController < ApplicationController
   end
 
   def only_admin
-    unless current_user.admin?
+    unless current_student.admin?
       redirect_to root_path, notice: "Not authorized!"
     end
   end
